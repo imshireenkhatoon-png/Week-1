@@ -1,0 +1,149 @@
+* {
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  margin: 0;
+  background: linear-gradient(to right, #0077b6, #00b4d8);
+  color: #fff;
+  text-align: center;
+  overflow-x: hidden;
+}
+
+.hero {
+  position: relative;
+  height: 60vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(to bottom, #0077b6, #90e0ef);
+  overflow: hidden;
+}
+
+.hero h1 {
+  font-size: 3em;
+  margin: 0;
+}
+
+.hero p {
+  font-size: 1.2em;
+  max-width: 600px;
+  margin: 15px;
+}
+
+.waves {
+  position: absolute;
+  width: 100%;
+  height: 100px;
+  bottom: 0;
+  left: 0;
+  overflow: hidden;
+  line-height: 0;
+}
+
+.wave {
+  position: absolute;
+  width: 200%;
+  height: 100px;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 100%;
+  opacity: 0.6;
+  animation: moveWaves 8s linear infinite;
+}
+
+#wave1 {
+  animation-delay: 0s;
+  z-index: 3;
+}
+
+#wave2 {
+  animation-delay: -2s;
+  opacity: 0.4;
+  z-index: 2;
+}
+
+#wave3 {
+  animation-delay: -4s;
+  opacity: 0.3;
+  z-index: 1;
+}
+
+@keyframes moveWaves {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.about {
+  padding: 40px 20px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  margin: 30px auto;
+  width: 80%;
+}
+
+.upload-section {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 15px;
+  padding: 20px;
+  margin: 30px auto;
+  width: 80%;
+}
+
+.upload-label {
+  display: block;
+  background: #00b4d8;
+  padding: 12px 25px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+#imageUpload {
+  display: none;
+}
+
+#preview {
+  margin-top: 15px;
+  max-width: 300px;
+  border-radius: 10px;
+  border: 2px solid #caf0f8;
+}
+
+#predictBtn {
+  margin-top: 15px;
+  padding: 10px 25px;
+  border: none;
+  background: #0096c7;
+  color: white;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 1em;
+  transition: 0.3s;
+}
+
+#predictBtn:hover {
+  background: #00b4d8;
+}
+
+.output-section {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 15px;
+  padding: 20px;
+  margin: 30px auto;
+  width: 80%;
+}
+
+#ecoTip {
+  margin-top: 15px;
+  font-style: italic;
+  font-size: 1.1em;
+}
+
+footer {
+  background: rgba(0, 0, 0, 0.2);
+  padding: 10px;
+  font-size: 0.9em;
+}

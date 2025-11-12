@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CleanSeaVision | Marine Waste Classifier</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
+</head>
+
+<body>
+  <header class="hero">
+    <h1>CleanSeaVision </h1>
+    <p>AI for Ocean Sustainability — Classifying Marine Waste for a Cleaner Tomorrow</p>
+    <div class="waves">
+      <div class="wave" id="wave1"></div>
+      <div class="wave" id="wave2"></div>
+      <div class="wave" id="wave3"></div>
+      <div class="wave" id="wave4"></div>
+    </div>
+  </header>
+
+  <main>
+    <section class="about">
+      <h2>Our Mission</h2>
+      <p>
+        The ocean is Earth's lifeline, yet it faces increasing pollution from human activity.  
+        <strong>CleanSeaVision</strong> uses AI-powered image recognition to detect and classify marine debris, oil spills, 
+        and clean water zones — supporting conservation, research, and awareness efforts.  
+        Every image analyzed helps us move one step closer to cleaner seas.
+      </p>
+    </section>
+
+    <section class="upload-section">
+      <label for="imageUpload" class="upload-label">Upload Ocean Image</label>
+      <input type="file" id="imageUpload" accept="image/*" />
+      <img id="preview" alt="Preview will appear here" />
+      <button id="predictBtn">Analyze Image</button>
+    </section>
+
+    <section class="output-section">
+      <h2>Prediction Result</h2>
+      <p id="result">No image analyzed yet.</p>
+      <p id="confidence"></p>
+      <div id="ecoTip"></div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Made with 💙 by <strong>Shireen Khatoon</strong> | CleanSeaVision Project</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
