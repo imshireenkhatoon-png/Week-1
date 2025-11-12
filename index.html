@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CleanSeaVision | Marine Waste Classifier</title>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;600&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- TensorFlow.js -->
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.12.0/dist/tf.min.js"></script>
+  <meta name="theme-color" content="#0077b6" />
+</head>
+<body>
+  <header class="nav">
+    <div class="container nav-inner">
+      <div class="brand">
+        <div class="logo" aria-hidden="true">🌊</div>
+        <div>
+          <h1>CleanSeaVision</h1>
+          <small>AI for Ocean Sustainability</small>
+        </div>
+      </div>
+      <nav>
+        <a href="#about">About</a>
+        <a href="#upload">Analyze</a>
+        <a href="#output">Result</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-content">
+        <h2 id="hero-title">Empowering Oceans with AI</h2>
+        <p>Upload an ocean image and our model will classify it as <strong>Marine Debris</strong>, <strong>Clean Water</strong>, or <strong>Oil Spill</strong>. Every prediction helps raise awareness.</p>
+        <div class="cta">
+          <a class="btn" href="#upload">Analyze an Image</a>
+          <a class="btn ghost" href="#about">How it works</a>
+        </div>
+      </div>
+      <div class="hero-visual" aria-hidden="true">
+        <!-- subtle wave SVG -->
+        <svg class="wavesvg" viewBox="0 0 1200 200" preserveAspectRatio="none">
+          <path d="M0,64 C300,200 900,0 1200,96 L1200,200 L0,200 Z"></path>
+        </svg>
+      </div>
+    </section>
+
+    <section id="about" class="card about">
+      <h3>Our Mission</h3>
+      <p>CleanSeaVision uses browser-based AI (TensorFlow.js) to classify marine images — helping researchers and communities spot debris, oil spills, and clean water areas quickly and privately (runs in your browser!).</p>
+      <ul class="features">
+        <li>Runs offline in browser</li>
+        <li>Privacy-first: images are not uploaded</li>
+        <li>Encourages fast response & awareness</li>
+      </ul>
+    </section>
+
+    <section id="upload" class="card upload-section" aria-labelledby="upload-heading">
+      <h3 id="upload-heading">Upload & Analyze</h3>
+
+      <div class="upload-grid">
+        <div class="upload-left">
+          <label for="imageUpload" class="upload-label">
+            <input id="imageUpload" type="file" accept="image/*" />
+            <span class="upload-text">Choose an image</span>
+            <small class="hint">or drag & drop it here</small>
+          </label>
+
+          <div class="preview-wrap">
+            <img id="preview" alt="Uploaded preview" />
+            <div id="no-preview" class="no-preview">Preview will appear here</div>
+          </div>
+
+          <div class="controls">
+            <button id="predictBtn" class="btn primary" disabled>Analyze Image</button>
+            <button id="clearBtn" class="btn ghost">Clear</button>
+          </div>
+
+          <div class="model-status" id="modelStatus" role="status">Model status: <span id="modelText">Loading...</span></div>
+        </div>
+
+        <div class="upload-right">
+          <div class="result-card card small">
+            <h4>Prediction</h4>
+            <div class="prediction-row">
+              <div class="confidence-visual" id="confidenceVisual" aria-hidden="true"></div>
+              <div class="pred-texts">
+                <div id="result" class="result-text">No image analyzed yet.</div>
+                <div id="confidence" class="confidence-text"></div>
+              </div>
+            </div>
+            <div id="ecoTip" class="eco-tip">Eco tip will show here.</div>
+          </div>
+
+          <div class="history card small" id="historyCard">
+            <div class="history-header">
+              <h4>Prediction History</h4>
+              <button id="clearHistory" class="btn tiny">Clear</button>
+            </div>
+            <ul id="historyList" class="history-list" aria-live="polite"></ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="output" class="card output-section">
+      <h3>How it works (brief)</h3>
+      <ol>
+        <li>The model was trained to recognize marine debris, clean water, and oil spills.</li>
+        <li>All inference runs locally in your browser via TensorFlow.js — no server upload required.</li>
+        <li>If you spot an oil spill or hazard, contact local authorities for cleanup support.</li>
+      </ol>
+      <div class="badge">Powered by TensorFlow.js</div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>Made with 💙 by <strong>Shireen Khatoon</strong> — CleanSeaVision</p>
+      <small>Model path: <code>model_web/model_web/model.json</code></small>
+    </div>
+  </footer>
+
+  <!-- Global overlay spinner -->
+  <div id="overlay" class="overlay hidden" aria-hidden="true">
+    <div class="spinner" role="status" aria-label="Loading"></div>
+    <div id="overlayText" class="overlay-text">Loading model...</div>
+  </div>
+
+  <!-- Script -->
+  <script src="script.js"></script>
+</body>
+</html>
